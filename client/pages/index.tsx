@@ -1,3 +1,5 @@
+import React from 'react';
+import Header from '../components/header/Header';
 
 type Prop = {
 
@@ -6,7 +8,7 @@ type Prop = {
 const Home = (prop: Prop) => {
   return (
     <div>
-      유비유비
+      <Header />
     </div>
   )
 }
