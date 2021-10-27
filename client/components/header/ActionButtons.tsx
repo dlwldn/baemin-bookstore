@@ -35,6 +35,9 @@ const ActionButtonsWrap = styled.div`
             height: 7px;
             background: #ddd;
         }
+        > span:nth-of-type(4) {
+            padding-right: 0;
+        }
         > span:nth-of-type(4)::after {
             content: '';
             display: none;
