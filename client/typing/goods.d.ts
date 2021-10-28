@@ -2,7 +2,7 @@ declare type GoodsDType = {
     id: number;
     title: string;
     price: number;
-    src: string;
+    src: StaticImageData | '';
     salePercent: number;
     date: string;
     upCount: number;

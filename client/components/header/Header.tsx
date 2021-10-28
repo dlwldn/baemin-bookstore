@@ -5,7 +5,12 @@ import Nav from './Nav';
 import SearchBar from './SearchBar';
 
 /* Constants =========================================================== */
-const HeaderWrap = styled.header``;
+const HeaderWrap = styled.header`
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: #fff;
+`;
 /* Prop =========================================================== */
 type Prop = {};
 /* <Header/> =========================================================== */

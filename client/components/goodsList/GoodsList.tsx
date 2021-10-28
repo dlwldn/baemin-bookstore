@@ -13,7 +13,8 @@ const ListWrap = styled.div<{ size }>`
 
     & > ul {
         display: grid;
-        grid-template-rows: ${props => props.size && `repeat(${Math.ceil(props.size / 4)}, 346px)`};
+        /* grid-template-rows: ${props => props.size && `repeat(${Math.ceil(props.size / 4)}, 450px)`}; */
+        grid-template-rows: auto;
         grid-template-columns: repeat(4, 1fr);
         grid-gap: 20px; 
     }
@@ -42,4 +43,6 @@ export default function GoodsList(prop: Prop) {
     )
 }
 
-GoodsList.defaultProps = {}
+GoodsList.defaultProps = {
+    title: ''
+}
