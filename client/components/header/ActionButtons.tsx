@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
-import Logo from '../../asset/images/logo.png'
+import Link from 'next/link';
+
+import Logo from '../../asset/images/logo.png';
 
 /* Constants =========================================================== */
 const ActionButtonsWrap = styled.div`
@@ -25,6 +27,11 @@ const ActionButtonsWrap = styled.div`
             font-weight: 500;
             position: relative;
         }
+
+        > span:hover {
+            cursor: pointer;
+        }
+
         > span::after {
             content: '';
             position: absolute;
@@ -52,10 +59,18 @@ export default function ActionButtons() {
         <ActionButtonsWrap>
             <Image src={Logo} width={156} />
             <div>
-                <span>로그인</span>
-                <span>회원가입</span>
-                <span>마이페이지</span>
-                <span>장바구니</span>
+                <Link href='/login'>
+                    <span>로그인</span>
+                </Link>
+                <Link href='/register'>
+                    <span>회원가입</span>
+                </Link>
+                <Link href='/'>
+                    <span>마이페이지</span>
+                </Link>
+                <Link href='/'>
+                    <span>장바구니</span>
+                </Link>
             </div>
         </ActionButtonsWrap>
     );
