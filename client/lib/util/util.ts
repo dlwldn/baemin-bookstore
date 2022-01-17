@@ -14,3 +14,7 @@ export const getDateSubCount = (date: string): number => {
 
     return Math.abs(DIFF_COUNT);
 }
+
+export const getSalePrice = (price: number, salePercent: number): number => {
+    return Math.floor((price * ((100 - salePercent) * 0.01)));
+}

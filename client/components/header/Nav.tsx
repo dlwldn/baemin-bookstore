@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 /* Constants =========================================================== */
+/* Prop =========================================================== */
+type Prop = {}
+/* <Nav/> =========================================================== */
 const NavWrap = styled.nav`
     display: flex;
     height: 40px;
@@ -23,9 +26,7 @@ const NavWrap = styled.nav`
         color: #2AC1BC;
     }
 `
-/* Prop =========================================================== */
-type Prop = {}
-/* <Nav/> =========================================================== */
+
 export default function Nav() {
     return (
         <NavWrap>

@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 /* Constants =========================================================== */
-const CLIENT_ID = ``;
-const OAUTH_URL = ``;
 /* Prop =========================================================== */
 type Prop = {};
 /* <Register/> =========================================================== */
@@ -48,10 +46,6 @@ const FormWrap = styled.form`
 const OAuthWrap = styled.div``;
 
 export default function Register() {
-    const _onClickGoogle = () => {
-        window.location.assign(OAUTH_URL);
-    };
-
     return (
         <RegisterWrap>
             <div>
@@ -73,7 +67,7 @@ export default function Register() {
                     </div>
                 </FormWrap>
                 <OAuthWrap>
-                    <button onClick={_onClickGoogle}>G</button>
+                    <button onClick={()=>{}}>G</button>
                     <button onClick={() => {}}>Naver</button>
                 </OAuthWrap>
             </div>

@@ -4,8 +4,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import Logo from '../../asset/images/logo.png';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'store';
+import { logout } from 'store/module/user';
+import router from 'next/router';
 /* Constants =========================================================== */
+/* Prop =========================================================== */
+type Prop = {};
+/* <ActionButtons/> =========================================================== */
 const ActionButtonsWrap = styled.div`
     height: 45px;
     border-bottom: 1px solid #eaeaea;
@@ -42,29 +48,39 @@ const ActionButtonsWrap = styled.div`
             height: 7px;
             background: #ddd;
         }
-        > span:nth-of-type(4) {
+        > span:last-of-type {
             padding-right: 0;
         }
-        > span:nth-of-type(4)::after {
+        > span:last-of-type::after {
             content: '';
             display: none;
         }
     }
 `;
-/* Prop =========================================================== */
-type Prop = {};
-/* <ActionButtons/> =========================================================== */
+
 export default function ActionButtons() {
+    const { id } = useSelector((state: RootState) => state.user);
+    const dispatch = useDispatch();
+
+    const _onClickLogout = () => {
+        if (id) {
+            dispatch(logout());
+            router.reload();
+        }
+    };
+
     return (
         <ActionButtonsWrap>
             <Image src={Logo} width={156} />
             <div>
-                <Link href='/login'>
-                    <span>로그인</span>
+                <Link href={id ? '/' : '/login'}>
+                    <span onClick={_onClickLogout}>
+                        {id ? '로그아웃' : '로그인'}
+                    </span>
                 </Link>
-                <Link href='/register'>
+                {/* <Link href='/register'>
                     <span>회원가입</span>
-                </Link>
+                </Link> */}
                 <Link href='/'>
                     <span>마이페이지</span>
                 </Link>

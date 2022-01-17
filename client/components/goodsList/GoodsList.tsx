@@ -3,6 +3,12 @@ import styled from 'styled-components';
 import GoodsListItem from './GoodsListItem';
 
 /* Constants =========================================================== */
+/* Prop =========================================================== */
+type Prop = {
+    list: GoodsDType[];
+    title: '잘나가요' | '새로 나왔어요' | '지금은 할인 중' | '';
+}
+/* <GoodsList/> =========================================================== */
 const ListWrap = styled.div<{ size }>`
     margin-bottom: 100px;
 
@@ -19,12 +25,7 @@ const ListWrap = styled.div<{ size }>`
         grid-gap: 20px; 
     }
 `
-/* Prop =========================================================== */
-type Prop = {
-    list: GoodsDType[];
-    title: '잘나가요' | '새로 나왔어요' | '지금은 할인 중' | '';
-}
-/* <GoodsList/> =========================================================== */
+
 export default function GoodsList(prop: Prop) {
     const { list, title } = prop;
     const renderListItem = () => list.map((item, idx)=> {

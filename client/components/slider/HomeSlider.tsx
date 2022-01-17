@@ -6,8 +6,20 @@ import Slider from 'react-slick';
 import Slide1 from '../../asset/images/slide-1.gif';
 import Slide2 from '../../asset/images/slide-2.gif';
 import Slide3 from '../../asset/images/slide-3.gif';
-
 /* Constants =========================================================== */
+const settings = {
+    dots: true,
+    fade: true,
+    infinite: true,
+    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 5000, 
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+/* Prop =========================================================== */
+type Prop = {};
+/* <Slider/> =========================================================== */
 const SliderWrap = styled.div`
     width: 100%;
 `;
@@ -45,19 +57,6 @@ const ImageWrap = styled.div`
     }
 `
 
-const settings = {
-    dots: true,
-    fade: true,
-    infinite: true,
-    speed: 500,
-    autoplay: true,
-    autoplaySpeed: 5000, 
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
-/* Prop =========================================================== */
-type Prop = {};
-/* <Slider/> =========================================================== */
 export default function HomeSlider() {
     return (
         <SliderWrap>

@@ -5,6 +5,16 @@ import Image from 'next/image';
 import Logo from '../../asset/images/footer-logo.png';
 
 /* Constants =========================================================== */
+const FOOTER_LIST: string[] = [
+    '공지사항',
+    '1:1문의',
+    '이용약관',
+    '개인정보처리방침',
+    '판매처 안내',
+];
+/* Prop =========================================================== */
+type Prop = {};
+/* <Footer/> =========================================================== */
 const FooterWrap = styled.footer`
     width: 100%;
     height: 250px;
@@ -45,16 +55,7 @@ const FooterWrap = styled.footer`
     }
 `;
 
-const FOOTER_LIST: string[] = [
-    '공지사항',
-    '1:1문의',
-    '이용약관',
-    '개인정보처리방침',
-    '판매처 안내',
-];
-/* Prop =========================================================== */
-type Prop = {};
-/* <Footer/> =========================================================== */
+
 export default function Footer() {
     const renderListItem = () =>
         FOOTER_LIST.map((item, idx) => {

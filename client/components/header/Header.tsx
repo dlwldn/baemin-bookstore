@@ -5,15 +5,16 @@ import Nav from './Nav';
 import SearchBar from './SearchBar';
 
 /* Constants =========================================================== */
+/* Prop =========================================================== */
+type Prop = {};
+/* <Header/> =========================================================== */
 const HeaderWrap = styled.header`
     position: sticky;
     top: 0;
     z-index: 9999;
     background: #fff;
 `;
-/* Prop =========================================================== */
-type Prop = {};
-/* <Header/> =========================================================== */
+
 export default function Header() {
     return (
         <HeaderWrap>

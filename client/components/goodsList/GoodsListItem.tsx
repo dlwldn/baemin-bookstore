@@ -1,8 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
-import { getDateSubCount } from '../../lib/util/util';
+import { getDateSubCount, getSalePrice } from 'lib/util/util';
 /* Constants =========================================================== */
+/* Prop =========================================================== */
+type Prop = {
+    listItem: GoodsDType;
+    listIndex: number;
+};
+/* <GoodsListItem/> =========================================================== */
 const ListItemWrap = styled.li``;
 const ContentWrap = styled.div`
     height: 100%;
@@ -80,12 +86,7 @@ const Price = styled.span<{ salePercent }>`
     ${(props) => props.salePercent && 'font-size: 10px;'};
 `;
 
-/* Prop =========================================================== */
-type Prop = {
-    listItem: GoodsDType;
-    listIndex: number;
-};
-/* <GoodsListItem/> =========================================================== */
+
 export default function GoodsListItem(prop: Prop) {
     const { listItem, listIndex } = prop;
     const { id, title, price, src, salePercent, date, viewCount, isGreen } =
@@ -117,7 +118,7 @@ export default function GoodsListItem(prop: Prop) {
                     </Price>
                     {salePercent > 0 && (
                         <span>
-                            {price.toLocaleString('ko-KR')}원
+                            {getSalePrice(price, salePercent).toLocaleString('ko-KR')}원
                             {price === 0 && '. 오래오래 공짜!'}
                         </span>
                     )}
