@@ -64,7 +64,7 @@ export default function ActionButtons() {
 
     const _onClickLogout = () => {
         if (id) {
-            dispatch(logout());
+            setTimeout(()=> dispatch(logout()), 1000);
             router.reload();
         }
     };

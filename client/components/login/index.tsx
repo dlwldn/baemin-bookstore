@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { UserOutlined, LockOutlined, GithubOutlined } from '@ant-design/icons';
 import { Button, Card, Input } from 'antd';
 import router from 'next/router';
 
 import { ReactComponent as IcoGoogle } from 'asset/logo/google-logo.svg';
+import useOAuth from 'lib/hooks/useOAuth';
 /* Constants =========================================================== */
-const CLIENT_ID = ``;
-const OAUTH_URL = ``;
 /* Prop =========================================================== */
 type Prop = {};
 /* <LoginForm/> =========================================================== */
@@ -28,8 +27,18 @@ const ButtonWrap = styled.div`
 `;
 
 const PlatFormButtonWrap = styled.div`
-    text-align: center;
-    margin: 30px 0 20px;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 10px;
+
+    > button {
+        margin: 0 10px;
+    }
+
+    svg {
+        width: 24px;
+        height: 24px;
+    }
 `;
 
 const RegisterWrap = styled.p`
@@ -45,12 +54,9 @@ const RegisterWrap = styled.p`
 `;
 
 export default function LoginForm() {
+    const { _onClickGoogleSign, _onClickGithubSign } = useOAuth();
     const _onClickRegister = () => {
         router.push('/register');
-    };
-
-    const _onClickGoogleSign = () => {
-        window.location.assign(OAUTH_URL);
     };
 
     return (
@@ -77,6 +83,14 @@ export default function LoginForm() {
                         onClick={_onClickGoogleSign}
                     >
                         <IcoGoogle />
+                    </Button>
+                    <Button
+                        shape='circle'
+                        size='large'
+                        title='깃헙으로 로그인하기'
+                        onClick={_onClickGithubSign}
+                    >
+                        <GithubOutlined />
                     </Button>
                 </PlatFormButtonWrap>
             </CardWrap>
