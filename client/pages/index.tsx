@@ -3,6 +3,7 @@ import GoodsList from 'components/goodsList/GoodsList';
 import HomeSlider from 'components/slider/HomeSlider';
 import { BEST_LIST, NEW_LIST, SALE_LIST } from '../lib/constant';
 import AppShell from 'components/AppShell';
+import { GetServerSideProps } from 'next';
 
 const ContentWrap = styled.div`
     padding: 8%;

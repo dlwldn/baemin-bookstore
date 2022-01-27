@@ -2,19 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
-
-import Logo from '../../asset/images/logo.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store';
 import { logout } from 'store/module/user';
 import router from 'next/router';
+
+import Logo from 'asset/images/logo.png';
 /* Constants =========================================================== */
 /* Prop =========================================================== */
 type Prop = {};
 /* <ActionButtons/> =========================================================== */
 const ActionButtonsWrap = styled.div`
     height: 45px;
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: ${({ theme }) => `1px solid${theme.color.BORDER_COLOR}`};
     background: #fff;
     padding: 0 8%;
     display: flex;
@@ -58,9 +58,19 @@ const ActionButtonsWrap = styled.div`
     }
 `;
 
+const MainLogo = styled(Image)`
+    :hover {
+        cursor: pointer;
+    }    
+`
+
 export default function ActionButtons() {
     const { id } = useSelector((state: RootState) => state.user);
     const dispatch = useDispatch();
+
+    const _onClickMainLogo = () => {
+        router.push('/')
+    }
 
     const _onClickLogout = () => {
         if (id) {
@@ -71,7 +81,7 @@ export default function ActionButtons() {
 
     return (
         <ActionButtonsWrap>
-            <Image src={Logo} width={156} />
+            <MainLogo src={Logo} width={156} onClick={_onClickMainLogo}/>
             <div>
                 <Link href={id ? '/' : '/login'}>
                     <span onClick={_onClickLogout}>

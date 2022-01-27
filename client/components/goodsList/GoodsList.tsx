@@ -6,7 +6,7 @@ import GoodsListItem from './GoodsListItem';
 /* Prop =========================================================== */
 type Prop = {
     list: GoodsDType[];
-    title: '잘나가요' | '새로 나왔어요' | '지금은 할인 중' | '';
+    title: '잘나가요' | '새로 나왔어요' | '지금은 할인 중';
 }
 /* <GoodsList/> =========================================================== */
 const ListWrap = styled.div<{ size }>`
@@ -28,7 +28,7 @@ const ListWrap = styled.div<{ size }>`
 
 export default function GoodsList(prop: Prop) {
     const { list, title } = prop;
-    const renderListItem = () => list.map((item, idx)=> {
+    const renderListItem = list.map((item, idx)=> {
         return (
             <GoodsListItem key={item.id} listItem={item} listIndex={idx}/>
         )
@@ -38,7 +38,7 @@ export default function GoodsList(prop: Prop) {
         <ListWrap size={list.length}>
             {title && <h2>{title}</h2>}
             <ul>
-                {renderListItem()}
+                {renderListItem}
             </ul>
         </ListWrap>
     )

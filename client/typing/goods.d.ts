@@ -4,7 +4,7 @@ declare type GoodsDType = {
     price: number;
     src: StaticImageData | '';
     salePercent: number;
-    date: string;
+    date: date;
     upCount: number;
     viewCount: number;
     isGreen: boolean;

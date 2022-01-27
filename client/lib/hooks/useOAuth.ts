@@ -5,12 +5,12 @@ import { useDispatch } from 'react-redux';
 import { setUser } from 'store/module/user';
 
 const GOOGLE_CLIENT_ID = ``;
-const GOOGLE_REDIRECT_URI = ``;
-const GOOGLE_OAUTH_URL = ``;
+const GOOGLE_REDIRECT_URI = `http://localhost:3000/callback/google`;
+const GOOGLE_OAUTH_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&response_type=token&redirect_uri=${GOOGLE_REDIRECT_URI}&scope=https://www.googleapis.com/auth/userinfo.email`;
 const GITHUB_CLIENT_ID = ``;
 const GITHUB_SECRET_CLIENT_ID = ``;
-const GITHUB_REDIRECT_URI = ``;
-const GITHUB_OAUTH_URL = ``;
+const GITHUB_REDIRECT_URI = `http://localhost:3000/callback/github`;
+const GITHUB_OAUTH_URL = `https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}&redirect_uri=${GITHUB_REDIRECT_URI}`;
 
 export default function useOAuth() {
     const dispatch = useDispatch();

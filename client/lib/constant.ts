@@ -1,4 +1,3 @@
-import { getTodayDate } from './util/util';
 import Pic1 from 'asset/images/pic1.jpg';
 import Pic2 from 'asset/images/pic2.jpg';
 import Pic3 from 'asset/images/pic3.jpg';
@@ -18,6 +17,60 @@ import Pic16 from 'asset/images/pic16.png';
 import Pic17 from 'asset/images/pic17.png';
 import Pic18 from 'asset/images/pic18.png';
 import Pic19 from 'asset/images/pic19.png';
+
+const getTodayDate = (): string => {
+    const YEAR = new Date().getFullYear();
+    const MONTH = String(new Date().getMonth() + 1).padStart(2, '0');
+    const DAY = String(new Date().getDate()).padStart(2, '0');
+
+    return `${YEAR}-${MONTH}-${DAY}`;
+};
+
+export const TITLE_LIST = [
+    '때수건. 다 때가 있다.',
+    '매거진F No.19 Wisky',
+    '피규어 지금 뭐해?',
+    '피규어 냥이의 등 긁는 하루',
+    '배달이 친구들, 스탠드그립 6종',
+    '배달이 친구들, 팝업카드 2종',
+    '2022 일력. 내가 그린 오늘',
+    '2022 다이어리. 내가 그린 오늘',
+    '글꼴. 배달의민족 을지로체',
+    '세븐일레븐X배민 저칼로리 아이스크림',
+    '효자손. 혼자서도 잘해요',
+    '작은쇼핑백, 축복',
+    '버추얼 굿즈, 당신을 위한 의자',
+    '떡볶이 키트, 떡볶이가 필요해',
+    '왼발오른발 양말 세트',
+    'ㅋㅋ골고루 양말 세트',
+    '미니갑티슈 세트. 튀었슈?',
+    'ㅋㅋ 안보이는 양말 세트',
+    '글꼴. 배달의 민족 을지로체',
+    '글꼴. 배달의민족 을지로오래오래체',
+];
+export const PRICE_LIST = [20000, 18000, 14000, 12000, 9900, 8900, 5000, 3000, 500, 0];
+export const PICTURE_LIST = [
+    Pic1,
+    Pic2,
+    Pic3,
+    Pic4,
+    Pic5,
+    Pic6,
+    Pic7,
+    Pic8,
+    Pic9,
+    Pic10,
+    Pic11,
+    Pic12,
+    Pic13,
+    Pic13,
+    Pic14,
+    Pic15,
+    Pic16,
+    Pic17,
+    Pic18,
+    Pic19,
+];
 
 export const BEST_LIST: GoodsDType[] = [
     {
@@ -64,8 +117,7 @@ export const BEST_LIST: GoodsDType[] = [
         viewCount: 4428,
         isGreen: false,
     },
-]
-
+];
 
 export const NEW_LIST: GoodsDType[] = [
     {
@@ -156,7 +208,7 @@ export const NEW_LIST: GoodsDType[] = [
         viewCount: 8,
         isGreen: true,
     },
-]
+];
 
 export const SALE_LIST: GoodsDType[] = [
     {
@@ -247,4 +299,4 @@ export const SALE_LIST: GoodsDType[] = [
         viewCount: 99,
         isGreen: false,
     },
-] 
+];
